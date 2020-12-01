@@ -3,7 +3,11 @@ var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
-var todos = JSON.parse(localStorage.getItem('todos')) || []
+var todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+var todoCount = document.getElementById('todo-count');
+
+var count = 0;
 
 function renderTodos() {
   // clear existing todos
@@ -22,6 +26,8 @@ function renderTodos() {
     li.appendChild(button)
     // append li to todoList
     todoList.appendChild(li)
+    count = todos.length;
+    todoCount.innerText = count
   }
 }
 
